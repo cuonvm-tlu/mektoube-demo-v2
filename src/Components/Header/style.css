@@ -1,0 +1,251 @@
+@media (max-width: 767px) {
+    *{
+        margin: 0
+    }
+
+    .header{
+        top: auto;
+        bottom: 0;
+        padding: 0;
+        position: fixed;
+        z-index: 100;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        box-shadow: 0 -2px 15px rgb(0 0 0 / 10%);
+        font-size: 15px;
+        font-family: Avenir Next Condensed,sans-serif;
+        font-weight: 600;
+    }
+
+    .header-inner{
+        -webkit-justify-content: center;
+        justify-content: center;
+        padding: 0 10px;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .header-logo{
+        display: none;
+    }
+    .header-primary{
+        width: 100%;
+        display: block;
+    }
+    .header-primary-ul{
+        display: flex;
+        flex-direction: row;
+        -webkit-justify-content: space-around;
+        justify-content: space-around;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        padding: 0 0 0 0;
+    }
+    
+    .header-primary-ul-a{
+        color: #313840;
+        position: relative;
+        padding: 0;
+        line-height: 48px;
+        text-align: center;
+        height: 48px;
+    }
+    .header-primary-ul-a-green{
+        color: black;
+        position: relative;
+        padding: 0;
+        line-height: 48px;
+        text-align: center;
+    }
+
+    .header-primary-ul-a-1{
+        color: #313840;
+        position: relative;
+        padding: 0;
+        line-height: 48px;
+        text-align: center;
+    }
+    .header-primary-span{
+        opacity: 1;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+        position: relative;
+        top: -2px;
+        opacity: .5;
+        transition: opacity .25s;
+        font-size: 20px;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .header-aside{
+        display: none
+    }
+
+    .header-span {
+        display: none;
+    }
+
+    .header-li-green {
+        align-items: center;
+        border-bottom: solid 2px  #85e085;
+    }
+
+    .header-li {
+        align-items: center;
+    }
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------ */
+@media (min-width: 768px){
+    *{
+        margin: 0
+    }
+
+
+    .header-primary-ul-a-1{
+        display: none;
+    }
+    .header{
+        top: 0;
+        padding: 0;
+        position: fixed;
+        z-index: 100;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        box-shadow: 0 -2px 15px rgb(0 0 0 / 10%);
+        font-size: 15px;
+        font-family: Avenir Next Condensed,sans-serif;
+        font-weight: 600;
+    }
+
+    .header-inner{
+        -webkit-justify-content: center;
+        justify-content: center;
+        padding: 0 10px;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .header-primary{
+        width: 100%;
+        display: block;
+    }
+    .header-primary-ul{
+        display: flex;
+        flex-direction: row;
+        -webkit-justify-content: space-around;
+        justify-content: space-around;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        padding: 0 0 0 0;
+    }
+    
+    .header-primary-ul-a{
+        display: flex;
+        padding: 26px 0;
+        text-decoration: none;
+        font-family: Avenir Next Condensed,sans-serif;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 1.33;
+        color: #939eaa;
+        transition: color .25s;
+        position: relative;
+        height: 100%;
+    }
+    
+    .header-primary-ul-a-green{
+        height: 100%;
+        display: block;
+        padding: 26px 0;
+        text-decoration: none;
+        font-family: Avenir Next Condensed,sans-serif;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 1.33;
+        color: black;
+        transition: color .25s;
+        position: relative;
+        border-bottom: solid 1px #85e085;
+    }
+    .header-primary-span{
+        opacity: 1;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+        position: relative;
+        top: -2px;
+        opacity: .5;
+        transition: opacity .25s;
+        font-size: 20px;
+    }
+
+    .header-aside{
+        -webkit-flex-direction: column;
+        flex-direction: column; 
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .flex-row{
+        -webkit-flex-flow: row; 
+       flex-flow: row;
+       display: -webkit-flex;
+       display: flex;
+       -webkit-align-items: center;
+       align-items: center;
+        justify-content: flex-start;
+        font-size: 20px;
+    }
+
+
+    ul {
+        list-style: none;
+    }    
+
+    .header-aside-a{
+        display: -webkit-flex; 
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .header-span1{
+        display: inline;
+        padding: 26px 10px;
+        text-decoration: none;
+        font-family: Avenir Next Condensed,sans-serif;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 1.33;
+        color: black;
+        transition: color .25s;
+        position: relative;
+        min-width: 101px;
+    }
+
+    .header-btn{
+        border: none;
+        background-color: transparent;
+        font-size: 20px;
+    }
+
+}

@@ -1,0 +1,136 @@
+.login-input-container-black {
+    border: 1px solid  #e6e6e6;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+
+
+
+.login-input-container-blue {
+    border: 1px solid blue;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+
+.login-input-container-red {
+    border: 1px solid red;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+
+
+.login-input-label {
+    color: #868686 !important;
+    height: 18px;
+    opacity: 1;
+    font-size: 10px;
+    margin-top: 13px;
+    font-family: Avenir Next Condensed;
+    font-weight: 600;
+    line-height: 18px;
+    margin-left: 17px;
+    letter-spacing: 0;
+}
+
+.login-input-label-blue {
+    color: blue !important;
+    height: 18px;
+    opacity: 1;
+    font-size: 10px;
+    margin-top: 13px;
+    font-family: Avenir Next Condensed;
+    font-weight: 600;
+    line-height: 18px;
+    margin-left: 17px;
+    letter-spacing: 0;
+}
+
+input:focus{
+    outline: none;
+}
+
+.login-email-input {
+    border: none;
+    padding-left: 16px;
+    color: #000;
+    font-family: Avenir Next Condensed;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 24px;
+    min-height: 30px;
+    box-sizing: content-box;
+    display: block;
+    margin-top: 5px;
+    width: 90%;
+}
+
+.login-link {
+    right: 10px;
+    top: 9px;
+    color: #24cf5e;
+    font-family: Avenir Next Condensed;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 18px;
+    width: 100%;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.container-row1 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 13px;
+}
+
+.container-row2 {
+    display: flex;
+    flex-wrap: wrap;
+}
+  
+.box-1 {
+    flex: 1;
+}
+
+.box-2 {
+    flex: 1; 
+    display: flex;
+}
+
+.box-3 {
+    flex: 5
+}
+
+.login-password-button {
+    width: 100%;
+    text-align: center;
+    padding-right: 5px;
+    border: none;
+    background-color: white;
+    font-size: 20px;
+    outline:none;
+}
+
+.login-password-button-hide {
+    display: none;
+    width: 100%;
+    text-align: center;
+    padding-right: 5px;
+    border: none;
+    background-color: white;
+    font-size: 20px;
+    outline:none;
+}
+
+.login-email-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+  }
+  
