@@ -1,21 +1,38 @@
+@font-face {
+    font-family: 'Averta Demo';
+    src: url('../../../Font/AvertaDemo-Regular.woff2') format('woff2');
+}
 
+@font-face {
+    font-family: 'Avenir Next Condensed';
+    src: url('../../../Font/AvenirNextCondensed-DemiBold.woff2') format('woff2');
+    font-weight: 100;
+}
 
 @media (max-width: 767px) { 
     .signup-a {
-        right: -8px;
-        top: 18px;
+        right: 0px;
+        top: 23px;
         font-size: 12px;
         line-height: 1.25;
         color: #fff;
         text-decoration: underline;
-        position: absolute;
+        position: fixed;
         display: block!important;
-        font-family: Averta Demo,sans-serif;
+        font-family: 'Averta Demo',sans-serif;
         text-decoration: underline;
         margin-right: 7px;
         font-weight: 100;
 
     }
+
+    .signupForm-form-header{
+        padding: 12px 0 8px;
+        position: relative;
+        text-align: center;
+    }
+
+
     .signupForm-input-container{
         width: 100%;
         margin-bottom: 2px;
@@ -44,7 +61,7 @@
         color: #FFF;
         padding: 0;
         font-size: 17px;
-        font-family: Avenir Next Condensed;
+        font-family: 'Avenir Next Condensed';
         line-height: 1;
         font-weight: 600;
     }
@@ -56,7 +73,8 @@
         transform: scale(.7) !important;
         transform-origin: top left;
         color: #e6e6e6 !important;
-        font-family: Avenir Next Condensed;
+        opacity: 0.5;
+        font-family: 'Avenir Next Condensed';
         margin-top: 8px;
     }
 
@@ -72,7 +90,7 @@
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
         line-height: 1.1875em;
         align-items: center;
-        border-bottom: 1px solid white
+        border-bottom: 2px solid white
     }
 
     .signupForm-input-cotainer-inner-2-red{
@@ -87,7 +105,7 @@
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
         line-height: 1.1875em;
         align-items: center;
-        border-bottom: 1px solid red
+        border-bottom: 2px solid red
     }
 
     .signupForm-input{
@@ -134,11 +152,11 @@
 
     .signupForm-input-checkbox[type=checkbox] {
         border: 1px solid #fff;
-        margin-right: 20px;
+        margin-right: 15px;
         padding: 0.5em;
         -webkit-appearance: none;
         border-radius: 10px;
-        width: 3em; height: 3em;
+        width: 35px; height: 35px;
     }
 
     input[type=checkbox]:checked {
@@ -154,7 +172,7 @@
         line-height: 1.25;
         color: #fff;
         font-weight: 400;
-        font-family: Averta Demo,sans-serif;
+        font-family: 'Averta Demo',sans-serif;
     }
 
     .signupForm-form-action{
@@ -186,12 +204,12 @@
         justify-content: center;
         text-transform: uppercase;
         padding: 0 26px;
-        font-family: Avenir Next Condensed,sans-serif;
+        font-family: 'Avenir Next Condensed',sans-serif;
         font-weight: 600;
     }
 
     .signup-span{
-        font-family: Avenir Next Condensed,sans-serif;
+        font-family: 'Avenir Next Condensed',sans-serif;
         margin-left: 15px;
         font-weight: 600;
     }
@@ -199,6 +217,26 @@
     .signup-check{
         margin-bottom: 5px;
     }
+
+    .signupForm-space{
+        height: 15px;
+    }
+
+    .signupForm-space-2{
+        height: 15px;
+        display: none;
+    }
+
+    .signup-password-button-hide{
+        margin-bottom: 5px;
+        color: rgb(255, 255, 255);
+        border: none;
+        background-color: transparent;
+        margin-right: 30px!important;
+        font-size: 20px;
+        display: none
+    }
+
 }
 
 @media (min-width: 768px) { 
@@ -210,10 +248,16 @@
         position: fixed;
         right: 64px;
         top: 55px;
-        font-family: Averta Demo,sans-serif;
+        font-family: 'Averta Demo',sans-serif;
         font-weight: 100;
         letter-spacing: 1px;
     }
+
+    .signupForm-form-header{
+        padding: 47px 0 18px;
+        position: relative;
+        text-align: center;
+    } 
     .signupForm-input-container{
         width: 100%;
         margin-bottom: 2px;
@@ -242,7 +286,7 @@
         color: #FFF;
         padding: 0;
         font-size: 17px;
-        font-family: Avenir Next Condensed;
+        font-family: 'Avenir Next Condensed';
         line-height: 1;
         font-weight: 600;
     }
@@ -254,8 +298,9 @@
         transform: scale(.7) !important;
         transform-origin: top left;
         color: #e6e6e6 !important;
-        font-family: Avenir Next Condensed;
+        font-family: 'Avenir Next Condensed';
         margin-top: 8px;
+        opacity: 0.5;
     }
 
     .signupForm-input-cotainer-inner-2{
@@ -270,7 +315,7 @@
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
         line-height: 1.1875em;
         align-items: center;
-        border-bottom: 1px solid white
+        border-bottom: 2px solid white
     }
 
     .signupForm-input-cotainer-inner-2-red{
@@ -285,7 +330,7 @@
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
         line-height: 1.1875em;
         align-items: center;
-        border-bottom: 1px solid red
+        border-bottom: 2px solid red
     }
 
     .signupForm-input{
@@ -332,11 +377,11 @@
 
     .signupForm-input-checkbox[type=checkbox] {
         border: 1px solid #fff;
-        margin-right: 20px;
+        margin-right: 15px;
         padding: 0.5em;
         -webkit-appearance: none;
         border-radius: 10px;
-        width: 3em; height: 3em;
+        width: 35px; height: 35px;
     }
 
     input[type=checkbox]:checked {
@@ -352,7 +397,7 @@
         line-height: 1.25;
         color: #fff;
         font-weight: 400;
-        font-family: Averta Demo,sans-serif;
+        font-family: 'Averta Demo',sans-serif;
         letter-spacing: 0.01071em;
     }
 
@@ -385,12 +430,12 @@
         justify-content: center;
         text-transform: uppercase;
         padding: 0 26px;
-        font-family: Avenir Next Condensed,sans-serif;
+        font-family: 'Avenir Next Condensed',sans-serif;
         font-weight: 600;
     }
 
     .signup-span{
-        font-family: Avenir Next Condensed,sans-serif;
+        font-family: 'Avenir Next Condensed',sans-serif;
         margin-left: 15px;
         font-weight: 600;
     }
@@ -398,4 +443,23 @@
     .signup-check{
         margin-bottom: 5px;
     }
+
+    .signupForm-space{
+        height: 15px;
+    }
+
+    .signupForm-space-2{
+        height: 15px;
+    }
+    
+    .signup-password-button-hide{
+        margin-bottom: 5px;
+        color: rgb(255, 255, 255);
+        border: none;
+        background-color: transparent;
+        margin-right: 30px!important;
+        font-size: 20px;
+        display: none
+    }
 }
+

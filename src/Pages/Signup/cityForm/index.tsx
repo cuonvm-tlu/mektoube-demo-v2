@@ -1,5 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import React, {useEffect} from 'react';
+import React, {useEffect, useLayoutEffect} from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import "./style.css";
 
@@ -17,6 +17,7 @@ import { SignupItem }  from '../../../Components/signupItem/index';
 import { useLocation } from 'react-router-dom';
 import { Noti } from  '../../../Components/Noti/index';
 import { addGeoId } from '../../../Actions/formData/formDataActions'
+import { addCities } from "../../../Actions/location/locationActions";
 
 type Inputs = {
   city: string;
@@ -24,6 +25,10 @@ type Inputs = {
 
 type FormData = {
   formdata: any
+}
+
+type Location = {
+  location: any
 }
 
 const schema = yup.object().shape({
@@ -39,10 +44,35 @@ export default function CityForm() {
   const [cities, setCities] = React.useState([]);
   const data1 = (state: FormData) => state.formdata
   const data2 = useSelector(data1)
+  const location1 = (state: Location) => state.location
+  const location2 = useSelector(location1)
   
-  useEffect(() => {
-    setValue("city", `${data2.geoname_id}`)
-  }
+
+
+  useLayoutEffect(() => {
+    setCities(location2.cities)
+  // @ts-ignore
+  fetch(`https://responsive-staging.ltservices2.ovh/api/static/atlas/${data2.country}/${data2.region}/cities.json`)
+    .then(res => res.json())
+    .then(
+      (result) => {
+          var data = result.CONTENT.ALL.cities
+          setCities(data)
+          dispatch(addCities(data))
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+    
+}, [])
+
+useEffect(() => {
+  setValue("city", `${data2.geoname_id}`)
+    if (errors.city!==undefined)
+  dispatch(action)
+  setTimeout(()=>dispatch(action2), 5000)
+}
 )
 
   const history = useHistory()
@@ -57,26 +87,6 @@ export default function CityForm() {
   const action = showNoti()
   const action2 = hideNoti()
 
-  useEffect(() => {
-    // @ts-ignore
-    fetch(`https://responsive-staging.ltservices2.ovh/api/static/atlas/${data2.country}/${data2.region}/cities.json`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-            var data = result.CONTENT.ALL.cities
-            setCities(data)
-        },
-        (error) => {
-          console.log(error);
-        }
-      )
-  }, [])
-
-  useEffect(() => {
-    if (errors.city!==undefined)
-      dispatch(action)
-      setTimeout(()=>dispatch(action2), 5000)
-  });
 
   const onBackClick = () => {
     let path = `/regionForm/`; 

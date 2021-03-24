@@ -1,3 +1,4 @@
+
 @media (max-width: 767px) { 
     *{
         margin: 0
@@ -26,7 +27,7 @@
         height: 100vh;
         position: relative;
         max-width: 100%;
-        font-family: Avenir Next Condensed;
+        font-family: 'Avenir Next Condensed';
     }
 
     .dobForm-inner-section {
@@ -35,7 +36,7 @@
         min-height: 100%;
         margin: 0 auto;
         position: relative;
-        font-family: Avenir Next Condensed;
+        font-family: 'Avenir Next Condensed';
     }
 
     .dobForm-form {
@@ -46,7 +47,7 @@
         flex-flow: column;
         justify-content: flex-start;
         height: 100%;
-        font-family: Avenir Next Condensed;
+        font-family: 'Avenir Next Condensed';
     }
     
     .dobForm-form-header{
@@ -58,8 +59,8 @@
     .dobForm-linkback {
         position: absolute;
         left: 30%;
-        top: 20x;
-        left: 5px;
+        top: 15x;
+        left: 0px;
         text-decoration: none;
         border: none;
         background-color: transparent;
@@ -184,6 +185,7 @@
     .dobForm-input::placeholder {
         color: #d9d9d9;
         font-family: 'Avenir Next Condensed', sans-serif;
+        opacity: 0.5;
     }
 
     .dobForm-date-seperator {
@@ -225,7 +227,6 @@
 
     .dobForm-inner-section {
         width: 100%;
-        padding: 0 20px 58px;
         min-height: 100%;
         margin: 0 auto;
         position: relative;
@@ -250,7 +251,7 @@
 
     .dobForm-linkback {
         position: fixed;
-        left: 10%;
+        left: 15%;
         top: 55px;
         margin: 0 calc(-50vw + 50%);
         border: none;
@@ -258,10 +259,9 @@
     }
 
     .dobForm-form-body{
-        margin-bottom: 30px;
+        margin-bottom: 50px;
         overflow-x: hidden;
         /* height: calc(100% - 120px); */
-        padding-bottom: 80px;
     }
 
     .dobForm-label {
@@ -322,12 +322,12 @@
         margin: 0;
         color: #fff;
         font-size: 24px;
-        font-family: Avenir Next Condensed,sans-serif;
+        font-family: 'Avenir Next Condensed',sans-serif;
         font-weight: 600;
     }
     .dobForm-field-date {
         margin: 20px auto;
-        font-family: Avenir Next Condensed,sans-serif;
+        font-family: 'Avenir Next Condensed',sans-serif;
         font-weight: 600;
         font-size: 17px;
         width: 80%;
@@ -388,6 +388,7 @@
 
     .dobForm-input::placeholder {
         color: white;
+        opacity: 0.5;
     }
 
     .dobForm-date-seperator {
@@ -396,8 +397,5 @@
         margin: auto 4px;
     }
 
-    .dobForm-input::placeholder {
-        color: #d9d9d9;
-    }
 
 }

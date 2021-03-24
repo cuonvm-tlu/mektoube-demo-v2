@@ -9,7 +9,13 @@ export const UserProfile: React.FC<{avatar:string, name:string, location: string
         <div className="profile-avatar"> 
             <img className="avatar" src='/static/media/KhanhVy.453b0a6f.jpg'/>
             {/* <span className="avatar-span"> </span> */}
-            <div> </div>
+            <div className="profile-flag">
+              <img className="profile-flag-img" src='https://cdn.imgbin.com/15/12/18/imgbin-flag-of-vietnam-vietnam-flag-kRWxRXvceT9YAJracJDuKFUa8.jpg' alt="world" width="30vw" height="30vw"/>
+            </div>
+            <div className="profile-status"> 
+              <div className="profile-status-away"> 
+              </div> 
+            </div>
         </div>
         <div className="profile-content"> 
               <h5 className="user-profile-h5"> {name} </h5>

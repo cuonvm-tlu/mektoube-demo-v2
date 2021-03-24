@@ -78,7 +78,7 @@ export default function OriginForm() {
                         <div className="originForm-form-header-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="15.399" height="14" viewBox="0 0 15.399 14"><path id="Combined_Shape" data-name="Combined Shape" d="M14.477,13.964,10.5,12.632,5.07,13.979A.721.721,0,0,1,4.9,14a.687.687,0,0,1-.221-.036l-4.2-1.4A.7.7,0,0,1,0,11.9V.7A.7.7,0,0,1,.922.037L4.905,1.373,10.329.022A.719.719,0,0,1,10.5,0a.693.693,0,0,1,.222.036l4.2,1.4A.7.7,0,0,1,15.4,2.1V13.3a.7.7,0,0,1-.922.664ZM5.6,2.648V12.4l4.2-1.05V1.606Zm8.406,9.683L14,2.608l-2.8-.941v9.728ZM1.4,11.4l2.8.93V2.605L1.4,1.671Z" transform="translate(0 0)" fill="#FFF"></path></svg>
                         </div>
-                        <h4 className="entityForm-h4">Quelle est votre origine? </h4>
+                        <h4 className="entityForm-h4">Quelle est votre origine ? </h4>
                         <small className="originForm-small"> Un seul choix possible </small> 
                     </div>
                     <div className="originForm-form-body"> 

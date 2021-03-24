@@ -100,22 +100,27 @@ export default function SignIn() {
   }
   return (
     <div className='container-fluid '> 
-      <div> 
         <section className="login-section full-height"> 
+          <a className="login-a-close"> 
+            <i className="fa fa-times close-icon" aria-hidden="true"></i>
+          </a>
           <form className='login-form' onSubmit={handleSubmit(onSubmit)}>
             <div className="login-form-head">
               <img className="login-image" src={logo} /> 
+              <a className="login-a-close-2"> 
+                <i className="fa fa-times close-icon-2" aria-hidden="true"></i>
+              </a>
             </div>
             <div className="login-form-body"> 
               <div className="form-body-inner"> 
-                <h1 className="login-title"> Se connecter a Mektoube </h1>
+                <h1 className="login-title"> Se connecter à Mektoube </h1>
                 <Noti content={"Identifiant ou mot de passe incorrect"} style={'noti-login'}/>  
                 <LoginInputUserName register={register} isError={redBorderUserName}/>
                 <LoginInputPassword register={register} isError={redBorderPassWord} />
               </div>
-              <div className="login-forgetpassword"> Nous contracter ou Adie </div>
+              <div className="login-forgetpassword"> Nous contacter ou Aide </div>
               <div className="form-body-actions"> 
-                <button type="submit" className="login-button">  Me Connector </button> 
+                <button type="submit" className="login-button">  Me Connecter </button> 
                 <div> 
                   <span className='login-span'> Vous n'avez pas de compte?  </span>
                   <span> 
@@ -126,7 +131,6 @@ export default function SignIn() {
             </div>
           </form>
         </section>
-      </div>
     </div>
   );
 }

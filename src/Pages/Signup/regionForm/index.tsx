@@ -1,5 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import React, {useEffect} from 'react';
+import React, {useEffect, useLayoutEffect} from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import "./style.css";
 
@@ -17,7 +17,7 @@ import { SignupItem }  from '../../../Components/signupItem/index';
 import { useLocation } from 'react-router-dom';
 import { Noti } from  '../../../Components/Noti/index';
 import { addRegion } from '../../../Actions/formData/formDataActions'
-
+import {addRegions} from '../../../Actions/location/locationActions';
 
 type Inputs = {
   region: string;
@@ -25,6 +25,10 @@ type Inputs = {
 
 type FormData = {
   formdata: any
+}
+
+type Location = {
+  location: any
 }
 
 const schema = yup.object().shape({
@@ -42,8 +46,33 @@ export default function RegionForm() {
   
   const data1 = (state: FormData) => state.formdata
   const data2 = useSelector(data1)
+  const location1 = (state: Location) => state.location
+  const location2 = useSelector(location1)
+
+  useLayoutEffect(() => {
+    setRegions(location2.regions)
+    // @ts-ignore
+    fetch(`https://responsive-staging.ltservices2.ovh/api/static/atlas/${data2.country}/regions.json`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          const data = result.CONTENT.regions
+          setRegions(data)
+          dispatch(addRegions(data))
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+      
+  }, [])
+
   useEffect(() => {
-      setValue("region", `${data2.region}`)
+    setValue("region", `${data2.region}`)
+    if (errors.region!==undefined){
+      dispatch(action)
+      setTimeout(()=>dispatch(action2), 5000)
+    }
     }
   )
 
@@ -57,30 +86,6 @@ export default function RegionForm() {
   const dispatch = useDispatch()
   const action = showNoti()
   const action2 = hideNoti()
-
-  useEffect(() => {
-    // @ts-ignore
-    fetch(`https://responsive-staging.ltservices2.ovh/api/static/atlas/${data2.country}/regions.json`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          // setCountry(data.map((a:any) => a.name));
-           const data = result.CONTENT.regions
-          setRegions(data)
-        //   console.log(data)
-        },
-        (error) => {
-          console.log(error);
-        }
-      )
-  }, [])
-
-  useEffect(() => {
-    if (errors.region!==undefined){
-      dispatch(action)
-      setTimeout(()=>dispatch(action2), 5000)
-    } 
-  });
 
   const onBackClick = () => {
     let path = `/countryForm/`; 

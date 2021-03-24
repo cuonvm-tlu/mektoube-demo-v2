@@ -18,6 +18,8 @@ import { PasswordStrengthMeter } from '../../../Components/passwordStrength/inde
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../Actions/userSignup/signUpActions';
 
+import { addName, addEmail, addPassword } from '../../../Actions/formData/formDataActions'
+
 type Inputs = {
   email: string;
   firstname: string;
@@ -33,7 +35,7 @@ type FormData = {
 const schema = yup.object().shape({
     email: yup.string().email().required(),
     firstname: yup.string().required(),
-    password: yup.string().required(),
+    password: yup.string().required('Le mot de passe ne peut pas êntre vide').min(8, 'Votre nouveau mot de passe doit faire au moins 8 caractères'),
     condition1: yup.boolean().oneOf([true], 'Must Accept Terms and Conditions'),
     condition2: yup.boolean().oneOf([true], 'Must Accept Terms and Conditions'),
 });
@@ -43,6 +45,8 @@ export default function Signup() {
   const { register, handleSubmit, watch, errors } = useForm<Inputs>({
     resolver: yupResolver(schema)
   });
+  const data1 = (state: FormData) => state.formdata
+  const data2 = useSelector(data1)
   const location = useLocation();
   const history = useHistory()
   const [label1, setLabel1] = useState('signupForm-input-label')
@@ -53,12 +57,11 @@ export default function Signup() {
   const [underline3, setUnderLine3] = useState('signupForm-input-cotainer-inner-2')
   const [show, setShow] = useState ('password')
   const [errMessage, setErrMessage] = useState('')
-  const [password, setPassword] = useState('')
-
-  const [emailValue, setEmailValue] = useState('')
-  const [nameValue, setNameValue] = useState('')
-  const [passwordValue, setPasswordValue] = useState('')
+  const [emailValue, setEmailValue] = useState(`${data2.email}`)
+  const [nameValue, setNameValue] = useState(`${data2.firstname}`)
+  const [passwordValue, setPasswordValue] = useState(`${data2.password}`)
   const [tokenExisted, setTokenExisted] = React.useState<any>(localStorage.getItem('token'))
+  const [passwordButton, setPasswordButton] = useState('signup-password-button-hide')
   const onSubmit: SubmitHandler<Inputs> = data => {
     const signUpForm ={
       firstname: data.firstname,
@@ -93,6 +96,9 @@ export default function Signup() {
       const logginAction = signUp(userInfo)
       dispatch(logginAction)
       setTokenExisted(localStorage.getItem('token'))
+      history.push({
+        pathname: '/homePage/'
+    });
     }, 
     )
     .catch(function (error) {
@@ -108,15 +114,14 @@ export default function Signup() {
   const dispatch = useDispatch()
   const action = showNoti()
 
-  const data1 = (state: FormData) => state.formdata
-  const data2 = useSelector(data1)
-
   const onNameChange = (event:any) => {
-        setNameValue(event.target.value)
+    setNameValue(event.target.value)
   }
 
   const onEmailChange = (event:any) => {
     setEmailValue(event.target.value)
+    console.log(event.target.value)
+    console.log(emailValue)
   }
 
   const onPasswordChange = (event:any) => {
@@ -158,6 +163,20 @@ export default function Signup() {
   }
 
   useEffect(()=>{
+    console.log(passwordValue)
+    if (passwordValue !== ''){
+      setPasswordButton('signup-password-button')
+    }
+    else {
+      setPasswordButton('signup-password-button-hide')
+    }
+    if (data2.email !== '' && emailValue !== '')
+      setLabel1('signupForm-input-label-2')
+    if (data2.firstname !== '' && nameValue !== '')
+      setLabel2('signupForm-input-label-2')
+    if (data2.password !== '' && passwordValue !== ''){
+      setLabel3('signupForm-input-label-2')
+    }
     if (errors.email !== undefined)
     {
         setUnderLine1('signupForm-input-cotainer-inner-2-red')
@@ -183,23 +202,21 @@ export default function Signup() {
     }
   })
 
-
   const onBackClick = () => {
+    dispatch(addEmail(emailValue))
+    dispatch(addPassword(passwordValue))
+    dispatch(addName(nameValue))
     let path = `/cityForm/`; 
     history.push(path);
   }
 
-  if ( tokenExisted !== null){
-    console.log(tokenExisted)
-    return <Redirect to="/homePage/" />; 
-  }
   return (
-    <div className='originForm-container-fluid '> 
+    <div className='originForm-container-fluid'> 
         <section  className="originForm-section full-height">
             <div className="originForm-inner-section"> 
               <Noti content={errMessage} style={'noti-signup'}/> 
                 <form className='originForm-form' onSubmit={handleSubmit(onSubmit)}>
-                    <div className="originForm-form-header"> 
+                    <div className="signupForm-form-header"> 
                         <button type="button" onClick={onBackClick} className="originForm-linkback"> 
                             <ArrowBackIosIcon style={{ color: 'white', width: 18, height: 18}}/>
                          </button>
@@ -216,27 +233,28 @@ export default function Signup() {
                         </div>
                       </div>
                       {errors.email && <p className='error'>L'email n'est pass valide</p>}   
+                      <div className='signupForm-space' > </div>
                       <div className="signupForm-input-container"> 
                         <div className="signupForm-input-container-inner"> 
-                          <label className={label2}>  Prenom </label>
+                          <label className={label2}>  Prénom </label>
                           <div className={underline2}> 
                             <input className='signupForm-input' name='firstname' value={nameValue} onChange={onNameChange} onFocus={onLabelFocus2} onBlur={onLabelBlur2} ref={register}/> 
                           </div>
                         </div>
                       </div>
                       {errors.firstname && <p className='error'>Le Prenom ne peut pas entre vide</p>} 
+                      <div className='signupForm-space' > </div>
                       <div className="signupForm-input-container"> 
                         <div className="signupForm-input-container-inner"> 
-                          <label className={label3}>  Mot de passes </label>
+                          <label className={label3}>  Mot de Pass </label>
                           <div className={underline3}> 
                             <input className='signupForm-input' name='password' value={passwordValue} onChange={onPasswordChange} type={show} onFocus={onLabelFocus3} onBlur={onLabelBlur3} ref={register} /> 
-                            <button className="signup-password-button" onClick={onPasswordClick} type='button'> <i className="fa fa-eye-slash" aria-hidden="true"></i> </button>
-                            <PasswordStrengthMeter password={passwordValue}/>
+                            <button className={passwordButton} onClick={onPasswordClick} type='button'> <i className="fa fa-eye-slash" aria-hidden="true"></i> </button>
+                            <PasswordStrengthMeter password={passwordValue} />
                           </div>
-                          
                         </div>
                       </div>
-                      {errors.password && <p className='error'>Le mot de passe ne peut pas êntre vide</p>} 
+                      {errors.password && <p className='error'>{errors.password.message}</p>} 
                       <div className="signupForm-condition-container"> 
                         <div className="signupForm-checkbox"> 
                           <span>
@@ -244,16 +262,16 @@ export default function Signup() {
                           </span>
                           <span className="signupForm-input-checkbox-span">Je certifie être majeur(e) et j'accepte les GCU </span>
                         </div>
+                        <div className='signupForm-space-2' > </div>
                         <div className="signupForm-checkbox"> 
                           <span>
                             <input className="signupForm-input-checkbox" type="checkbox" name="condition2" ref={register}/>
                           </span>
-                          <span className="signupForm-input-checkbox-span">J'accepte que mes données renseignées, y compris celles facultatives relatives à mon origine, soient traitées par Mektoube et communiquées à ses prestataires et aux autres membres situés dans et hors l’UE afin de favoriser des rencontres et assurer la gestion de ma relation commerciale et ce conformément à la  </span>
+                          <span className="signupForm-input-checkbox-span">J'accepte que mes données renseignées, y compris celles facultatives relatives à mon origine, soient traitées par Mektoube et communiquées à ses prestataires et aux autres membres situés dans et hors l’UE afin de favoriser des rencontres et assurer la gestion de ma relation commerciale et ce conformément à la charte privée </span>
                         </div>
                       </div>
                     </div>
                     <div className="signupForm-form-action"> 
-
                       <button type="submit" className='signupForm-button' > 
                         <i className="fa fa-check signup-check" aria-hidden="true"></i>
                         <span className='signup-span'> CREER MON COMPETE </span>

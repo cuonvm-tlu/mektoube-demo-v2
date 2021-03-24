@@ -16,6 +16,7 @@ export const LoginInputPassword: React.FC<{register:any, isError:boolean}> = ({r
         setLabelColor('login-input-label-blue ')
         setButtonShow('login-password-button')
     }
+
     const onPasswordClick = () => {
         if (show==='password')
             setShow('text')
@@ -41,15 +42,15 @@ export const LoginInputPassword: React.FC<{register:any, isError:boolean}> = ({r
         <div className={borderColor}>
             <div className="container-row1"> 
                 <div className="box-1"> 
-                    <label className="login-input-label"> Mot de pass </label>
+                    <label className="login-input-label"> Mot de passe </label>
                 </div>
                 <div className="box-2"> 
-                    <a className="login-link"> Mot de passe oublie?</a>
+                    <a className="login-link"> Mot de passe oublie ?</a>
                 </div>
             </div>
             <div className="container-row2"> 
                 <div className="box-3"> 
-                    <input className='login-email-input' onClick={onBorderColorClick}  name='password' ref={register} placeholder="Votre mot de pass" type={show} onInput={onChangeBorderColor} /> 
+                    <input className='login-email-input' onClick={onBorderColorClick}  name='password' ref={register} placeholder="Votre mot de passe" type={show} onInput={onChangeBorderColor} /> 
                 </div>
                 <div className="box-2"> 
                     <button className={buttonShow} onClick={onPasswordClick} type='button'> <i className="fa fa-eye-slash" aria-hidden="true"></i> </button>

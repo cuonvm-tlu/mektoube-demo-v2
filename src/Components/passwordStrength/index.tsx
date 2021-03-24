@@ -36,21 +36,29 @@ export const PasswordStrengthMeter : React.FC<{password:string}> = ({password}) 
         case 4:
           return '#00b500';
         default:
-          return 'none';
+          return '#f2f2f2';
       }
     }
   
     const changePasswordColor = () => ({
-      width: `${num}%`,
-      background: funcProgressColor(),
-      height: '7px'
-    })
+
+        width: `${num}%`,
+        background: funcProgressColor(),
+        height: '3px'
+
+  })
   
     return (
       <div className="progress-bar-container">
         <p className="progress-bar-label" >{createPassLabel()}</p>
         <div className="progress" style={{ height: '7px' }}>
-          <div className="progress-bar" style={changePasswordColor()}></div>
+          <div className="progress-bar" style={{
+            width: '100%',
+            background: '#ffffff',
+            height: '3px'}}>
+              <div className="progress-bar" style={changePasswordColor()}>
+            </div>
+          </div>
         </div>
       </div>
     )

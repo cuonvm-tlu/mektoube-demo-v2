@@ -125,7 +125,7 @@
         background-color: #fff;
         box-shadow: 0 -2px 15px rgb(0 0 0 / 10%);
         font-size: 15px;
-        font-family: Avenir Next Condensed,sans-serif;
+        font-family: 'Avenir Next Condensed',sans-serif;
         font-weight: 600;
     }
 
@@ -159,7 +159,7 @@
         display: flex;
         padding: 26px 0;
         text-decoration: none;
-        font-family: Avenir Next Condensed,sans-serif;
+        font-family: 'Avenir Next Condensed',sans-serif;
         font-weight: 600;
         font-size: 15px;
         line-height: 1.33;
@@ -174,7 +174,7 @@
         display: block;
         padding: 26px 0;
         text-decoration: none;
-        font-family: Avenir Next Condensed,sans-serif;
+        font-family: 'Avenir Next Condensed',sans-serif;
         font-weight: 600;
         font-size: 15px;
         line-height: 1.33;
@@ -232,7 +232,7 @@
         display: inline;
         padding: 26px 10px;
         text-decoration: none;
-        font-family: Avenir Next Condensed,sans-serif;
+        font-family: 'Avenir Next Condensed',sans-serif;
         font-weight: 600;
         font-size: 15px;
         line-height: 1.33;
