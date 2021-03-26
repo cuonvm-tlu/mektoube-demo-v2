@@ -1,5 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import React, {useEffect, useLayoutEffect} from 'react';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import "./style.css";
 
@@ -33,12 +33,12 @@ const schema = yup.object().shape({
 });
 
 
+
 export default function CountryForm() {
   const { register, handleSubmit, watch, errors, setValue } = useForm<Inputs>({
     resolver: yupResolver(schema)
   });
   const [countries, setCountries] = React.useState([]);
-
   const data1 = (state: FormData) => state.formdata
   const data2 = useSelector(data1)
   const location1 = (state: Location) => state.location
@@ -56,8 +56,6 @@ export default function CountryForm() {
         pathname: '/regionForm/'
     });
   }; // your form submit function which will invoke after successful validation
-  
-
 
   useLayoutEffect(() => {
     setCountries(location2.countries)
@@ -76,7 +74,7 @@ export default function CountryForm() {
   }, [])
 
   useEffect(() => {
-    setValue("country", `${data2.country}`)
+      setValue("country", `${data2.country}`)
     if (errors.country!==undefined){
       dispatch(action)
       setTimeout(()=>dispatch(action2), 5000)
@@ -111,7 +109,7 @@ export default function CountryForm() {
                             countries.map(place => (
                              <SignupItem register={register} name='country' content={place['name']} value={place["id"]} key={place["id"]}/>
                             ))
-                        }
+                        } 
                     </div>
                     <div className="originForm-form-questionwrap"> 
                       <button type="submit" className='originForm-button' > 

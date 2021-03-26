@@ -42,7 +42,6 @@ export default function SignIn() {
 
 
   const onSubmit: SubmitHandler<Inputs> = data => {
-    console.log(1)
     axios
     .post(`https://responsive-staging.ltservices2.ovh/api/gate/${data.username}.json`,
       {
@@ -57,18 +56,19 @@ export default function SignIn() {
       }
     )
     .then((response) => {
-        console.log("login factory", response);
-        localStorage.setItem('token', response.data.CONTENT.token)
-        const userInfo:any = {
-         user: response.data.CONTENT.USER.login,
-         uuid: response.data.CONTENT.USER.uuid
-        }
-        const logginAction = logIn(userInfo)
-        dispatch(logginAction)
-        setTokenExisted(localStorage.getItem('token'))
+      console.log("login factory", response);
+      localStorage.setItem('token', response.data.CONTENT.token)
+      localStorage.setItem('puk', response.data.CONTENT.puk)
+      const userInfo:any = {
+       user: response.data.CONTENT.USER.login,
+       uuid: response.data.CONTENT.USER.uuid
+      }
+      const logginAction = logIn(userInfo)
+      dispatch(logginAction)
+      setTokenExisted(localStorage.getItem('token'))
     })
     .catch((error) => {
-        console.log("login factory error", error.response.data.errors[0].message);
+        // console.log("login factory error", error.response.data.errors[0].message);
         dispatch(action)
         setTimeout(()=>dispatch(action2), 7000)
     })

@@ -19,6 +19,10 @@ import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../Actions/userSignup/signUpActions';
 
 import { addName, addEmail, addPassword } from '../../../Actions/formData/formDataActions'
+// import Spinner from 'react-bootstrap/Spinner'
+import ClipLoader from "react-spinners/ClipLoader";
+
+
 
 type Inputs = {
   email: string;
@@ -62,6 +66,7 @@ export default function Signup() {
   const [passwordValue, setPasswordValue] = useState(`${data2.password}`)
   const [tokenExisted, setTokenExisted] = React.useState<any>(localStorage.getItem('token'))
   const [passwordButton, setPasswordButton] = useState('signup-password-button-hide')
+  const [isFetchedData, setIsFetchedData] = useState(false)
   const onSubmit: SubmitHandler<Inputs> = data => {
     const signUpForm ={
       firstname: data.firstname,
@@ -78,6 +83,7 @@ export default function Signup() {
     console.log(signUpForm)
   
     /// mising headers 
+    setIsFetchedData(true)
     axios.post('https://responsive-staging.ltservices2.ovh/api/pool/.json?new_key_signup=true', signUpForm, 
     {
       headers: {
@@ -88,6 +94,7 @@ export default function Signup() {
     .then(function (response) {
       console.log(response);
       localStorage.setItem('token', response.data.CONTENT.AUTH.token)
+      localStorage.setItem('puk', response.data.CONTENT.AUTH.puk)
       const userInfo:any = {
       uuid: response.data.CONTENT.AUTH.uuid,
       puk: response.data.CONTENT.AUTH.puk,
@@ -102,12 +109,14 @@ export default function Signup() {
     }, 
     )
     .catch(function (error) {
-        console.log(error.response.data.errors[0].message);
-        setErrMessage(`${error.response.data.errors[0].message  }`)
-        dispatch(action)
-        setTimeout(() => {
-          dispatch(hideNoti())
-        }, 5000);
+      // console.log(error);
+      // setErrMessage(`${error.response.data.errors[0].message}`)
+      setErrMessage('There is an error')
+      dispatch(action)
+      setTimeout(() => {
+        dispatch(hideNoti())
+      }, 5000);
+      setIsFetchedData(false)
     });
   }; // your form submit function which will invoke after successful validation
   
@@ -272,10 +281,17 @@ export default function Signup() {
                       </div>
                     </div>
                     <div className="signupForm-form-action"> 
+                    {
+                      !isFetchedData ?
                       <button type="submit" className='signupForm-button' > 
                         <i className="fa fa-check signup-check" aria-hidden="true"></i>
                         <span className='signup-span'> CREER MON COMPETE </span>
                       </button>
+                      :
+                      <button type="submit" className='signupForm-button-2' >
+                        <ClipLoader  color="#ffffff" />
+                      </button>
+                    }
                     </div>
                 </form> 
             </div>

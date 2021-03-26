@@ -1,8 +1,4 @@
-@font-face {
-    font-family: 'Avenir Next Condensed';
-    src: url('../../Font/AvenirNextCondensed-Regular.woff2') format('woff2');
-    font-weight: 100;
-}
+
 @media (max-width: 374px) {
 
 
@@ -209,7 +205,7 @@
     }
     .login-title {
         font-weight: 600!important;
-        font-family: Avenir Next Condensed;
+        font-family: 'Avenir Next Condensed';
         letter-spacing: 0;
         line-height: 32px;
         margin-bottom: 24px;
@@ -218,7 +214,7 @@
 
     .login-forgetpassword{
         color: #7f7f7f;
-        font-family: Avenir Next Condensed;
+        font-family: 'Avenir Next Condensed';
         font-size: 14px;
         font-weight: 600;
         letter-spacing: 0;
@@ -236,7 +232,7 @@
         text-transform: uppercase;
         height: 48px;
         padding: 0 26px;
-        font-family: Avenir Next Condensed,sans-serif;
+        font-family: 'Avenir Next Condensed',sans-serif;
         font-weight: 600;
         font-size: 15px;
         border-radius: 8px;
@@ -246,7 +242,7 @@
     }
 
     .login-span {
-        font-family: Avenir Next Condensed;
+        font-family: 'Avenir Next Condensed';
         font-size: 14px;
         font-weight: 600;
         letter-spacing: 0;
@@ -256,7 +252,7 @@
     .login-a{
         color: #24cf5e;
         text-decoration: underline;
-        font-family: Avenir Next Condensed;
+        font-family: 'Avenir Next Condensed';
         font-size: 14px;
         font-weight: 600;
         letter-spacing: 0;
@@ -267,7 +263,7 @@
         font-size: 22px;
         margin: 0;
         color: #fff;
-        font-family: Avenir Next Condensed,sans-serif;
+        font-family: 'Avenir Next Condensed',sans-serif;
         font-weight: 600;
     }
 
@@ -361,7 +357,7 @@
     }
     .login-title {
         font-weight: 600!important;
-        font-family: Avenir Next Condensed;
+        font-family: 'Avenir Next Condensed';
         letter-spacing: 0;
         line-height: 32px;
         margin-bottom: 24px;
@@ -370,7 +366,7 @@
 
     .login-forgetpassword{
         color: #7f7f7f;
-        font-family: Avenir Next Condensed;
+        font-family: 'Avenir Next Condensed';
         font-size: 14px;
         font-weight: 600;
         letter-spacing: 0;
@@ -388,7 +384,7 @@
         text-transform: uppercase;
         height: 48px;
         padding: 0 26px;
-        font-family: Avenir Next Condensed,sans-serif;
+        font-family: 'Avenir Next Condensed',sans-serif;
         font-weight: 600;
         font-size: 15px;
         border-radius: 8px;
@@ -398,7 +394,7 @@
     }
 
     .login-span {
-        font-family: Avenir Next Condensed;
+        font-family: 'Avenir Next Condensed';
         font-size: 14px;
         font-weight: 600;
         letter-spacing: 0;
@@ -408,7 +404,7 @@
     .login-a{
         color: #24cf5e;
         text-decoration: underline;
-        font-family: Avenir Next Condensed;
+        font-family: 'Avenir Next Condensed';
         font-size: 14px;
         font-weight: 600;
         letter-spacing: 0;

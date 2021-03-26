@@ -19,6 +19,7 @@ import { Noti } from  '../../../Components/Noti/index';
 import { addGeoId } from '../../../Actions/formData/formDataActions'
 import { addCities } from "../../../Actions/location/locationActions";
 
+
 type Inputs = {
   city: string;
 };
