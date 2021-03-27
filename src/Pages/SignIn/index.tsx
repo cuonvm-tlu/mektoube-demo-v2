@@ -15,7 +15,7 @@ import { LoginInputUserName } from '../../Components/loginInput/userInput';
 import { LoginInputPassword } from '../../Components/loginInput/passwordInput';
 import { Redirect } from 'react-router-dom';
 import logo from './logo.png';
-
+import ClipLoader from "react-spinners/ClipLoader";
 
 
 type Inputs = {
@@ -39,9 +39,10 @@ export default function SignIn() {
   const [redBorderUserName, setRedBordeUserName] = React.useState<any>(false)
   const [redBorderPassWord, setRedBordePassWord] = React.useState<any>(false)
   const [tokenExisted, setTokenExisted] = React.useState<any>(localStorage.getItem('token'))
-
+  const [isFetchedData, setIsFetchedData] = React.useState(false)
 
   const onSubmit: SubmitHandler<Inputs> = data => {
+    setIsFetchedData(true)
     axios
     .post(`https://responsive-staging.ltservices2.ovh/api/gate/${data.username}.json`,
       {
@@ -71,6 +72,7 @@ export default function SignIn() {
         // console.log("login factory error", error.response.data.errors[0].message);
         dispatch(action)
         setTimeout(()=>dispatch(action2), 7000)
+        setIsFetchedData(false)
     })
   }; // your form submit function which will invoke after successful validation
   const dispatch = useDispatch()
@@ -120,7 +122,15 @@ export default function SignIn() {
               </div>
               <div className="login-forgetpassword"> Nous contacter ou Aide </div>
               <div className="form-body-actions"> 
-                <button type="submit" className="login-button">  Me Connecter </button> 
+                {
+                  !isFetchedData ?
+                  <button type="submit" className="login-button">  Me Connecter </button>
+                  :
+                  <button type="submit" className="login-button-loading">  
+                    <ClipLoader  color="#ffffff" />
+                  </button>
+                }
+               
                 <div> 
                   <span className='login-span'> Vous n'avez pas de compte?  </span>
                   <span> 

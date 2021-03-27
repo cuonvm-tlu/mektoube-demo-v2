@@ -1,16 +1,32 @@
-import React from 'react';
+import React, {useEffect, useState, useLayoutEffect} from 'react';
 import "./style.css";
 import 'font-awesome/css/font-awesome.min.css';
-
+import axios from 'axios';
 
 export const UserProfile: React.FC<{avatar:string, name:string, location: string, age: string, origin: number, online: any}> = ({avatar, name, location, age, origin, online}) => {
+  const [isAvatarErr, setIsAvatarErr] = useState(false)
+  useLayoutEffect(() => {
+    axios
+    .get(avatar,
+    )
+    .then((response) => {
+      setIsAvatarErr(false)
+    })
+    .catch((error) => {
+      setIsAvatarErr(true)
+    })
+  }, []) 
+
   return (
     <a className="user-profile">
         <div className="profile-avatar"> 
             {
               avatar === null ?
-            <img className="avatar" src='https://responsive-staging.ltservices2.ovh/images/svg/avatar-woman-new.svg'/> :
-            <img className="avatar" src={avatar}/>
+            <img className="avatar" src='https://responsive-staging.ltservices2.ovh/images/svg/avatar-woman-new.svg'/> 
+            : isAvatarErr === false   ?
+            <img className="avatar" src={avatar}/> 
+            :
+            <img className="avatar" src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC'/>
             }
             <div className="profile-flag">
               {

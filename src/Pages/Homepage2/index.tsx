@@ -11,35 +11,6 @@ export default function HomPage2() {
   const data1 = (state: any) => state
   const isLogged = useSelector(data1)
   const [userProfile, setUserProfile] = useState([])
-  console.log(isLogged)
-  console.log(localStorage.getItem('token'))
-  console.log(localStorage.getItem('puk'))
-  //`https://apiv2.ltservices2.ovh/pool/.json?order=DEFAULT&size=20&start=0`
-  // useEffect(()=>{
-  //   axios
-  //   .get(`https://apiv2.ltservices2.ovh/pool/.json?`,
-  //     {
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'x-asgard-puk': localStorage.getItem('puk'),
-  //         'x-asgard-token': localStorage.getItem('token')
-  //       },
-  //       params: {
-  //         order: 'DEFAULT', 
-  //         size: 40, 
-  //         start: 0
-  //       }
-  //     }
-  //   )
-  //   .then((response) => {
-  //     console.log(response.data.CONTENT.USERS)
-  //     setUserProfile(response.data.CONTENT.USERS)
-  //   })
-  //   .catch((error) => {
-
-  //   })
-  // }, [])
-
   useEffect(() => {
     handleFetch(10);
   }, []);
