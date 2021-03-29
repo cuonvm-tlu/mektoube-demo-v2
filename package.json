@@ -2,6 +2,7 @@
   "name": "mektoube_v2",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://responsive-staging.ltservices2.ovh", 
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
@@ -13,6 +14,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.1",
+    "@types/express": "^4.17.11",
     "@types/jest": "^26.0.20",
     "@types/node": "^12.20.4",
     "@types/qs": "^6.9.6",
@@ -26,6 +28,7 @@
     "@types/zxcvbn": "^4.4.0",
     "axios": "^0.21.1",
     "bootstrap": "^3.4.1",
+    "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "moment": "^2.29.1",
     "react": "^17.0.1",
@@ -65,5 +68,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "http-proxy-middleware": "^1.0.6"
   }
 }

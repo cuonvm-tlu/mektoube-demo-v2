@@ -13,29 +13,28 @@ export default function HomPage2() {
   const [userProfile, setUserProfile] = useState([])
   useEffect(() => {
     handleFetch(10);
+    return () => {
+      setUserProfile([]); // This worked for me
+    }
   }, []);
 
   function handleFetch(params:number) {
-    const strParams = qs.stringify(params);
-    let url = "https://jsonplaceholder.typicode.com/comments";
-
-    if (strParams) {
-      url = url + "/?" + strParams;
-    }
 
     axios
-    .get(`https://apiv2.ltservices2.ovh/pool/.json?`,
-      {
+    .get(`/api/pool/.json?`,
+      { params: {
+        order: 'DEFAULT', 
+        size: params, 
+        start: 0,
+        //@ts-ignore
+        Timestamp: new Date().getTime()
+      },
         headers: {
           'Content-Type': 'application/json',
           'x-asgard-puk': localStorage.getItem('puk'),
           'x-asgard-token': localStorage.getItem('token')
         },
-        params: {
-          order: 'DEFAULT', 
-          size: params, 
-          start: 0
-        }
+ 
       }
     )
     .then((response) => {
