@@ -1,2 +1,2 @@
 /// <reference types="react-scripts" />
-HOST=mektoube.herokuapp.com
+HOST=mektoubev2.herokuapp.com
