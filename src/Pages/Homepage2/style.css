@@ -19,7 +19,7 @@
     }
     .homepage-wrapper {
         min-height: 100vh;
-        overflow: scroll;
+        /* overflow: auto; */
     }
 
     .homepage-main{
@@ -52,7 +52,7 @@
 
     .homepage-main-body-infinite-scroll{
         height: 100%;
-        overflow: scroll;
+        /* overflow: auto; */
     }
 
     .homepage-userprofile{    
@@ -103,7 +103,7 @@
     }
     .homepage-wrapper {
         min-height: 100vh;
-        overflow: scroll;
+        /* overflow: auto; */
     }
 
     .homepage-main{
@@ -136,7 +136,7 @@
 
     .homepage-main-body-infinite-scroll{
         height: 100%;
-        overflow: scroll;
+        /* overflow: auto; */
     }
 
     .homepage-userprofile{    
